@@ -217,9 +217,6 @@ body::before {
     right: 20px;
     overflow: hidden;
 
-
-
-    
 }
 
 .logreg-box .form-box{
@@ -241,16 +238,56 @@ body::before {
     flex-direction: column;
 }
 
-.logreg-box .form-box.login {
-    transform: translateX(0);
+
+
+/* Hide additional forms by default */
+.logreg-box .form-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: translateX(100%);
     transition: transform .6s ease;
-    transition-delay: .4s;
+    overflow: hidden;
 }
 
-.logreg-box.active .form-box.login {
-    transform: translateX(500px);
+.logreg-box .form-box.sign-in {
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.logreg-box.active-admin .form-box.admin,
+.logreg-box.active-customer .form-box.customer,
+.logreg-box.active-manager .form-box.manager {
+    transform: translateX(0);
+}
+
+.logreg-box.active .form-box.sign-in {
+    /* transform: translateX(100%); */
+    transform: translateX(100%);
     transition-delay: 0s;
 }
+
+
+/* Adjust form-box width to fit multiple forms */
+.logreg-box {
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .logreg-box .form-box.register {
@@ -412,4 +449,27 @@ body::before {
 
 .login-register p a:hover {
     text-decoration: underline;
+}
+
+
+/* Style for user type selection */
+.user-type {
+    margin: 20px 0;
+}
+
+.user-type select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1.5px solid #ffffff;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #ffffff;
+}
+
+.user-type select:focus {
+    outline: none;
+    background-color: #000000;
+    border-color: #ffe59f;
+    color: #ffe59f;
 }
